@@ -2,7 +2,7 @@ package com.coolweather.app.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.coolweather.app.model.City;
@@ -159,10 +159,7 @@ public class Utility {
      */
 
 
-    public static boolean handleCountiesResponse(CoolWeatherDB coolWeatherDB,
-
-
-                                                 String response, int cityId) {
+    public static boolean handleCountiesResponse(CoolWeatherDB coolWeatherDB, String response, int cityId) {
 
 
         if (!TextUtils.isEmpty(response)) {
@@ -232,25 +229,25 @@ public class Utility {
             JSONObject jsonObject = new JSONObject(response);
 
 
-            JSONObject weatherInfo = jsonObject.getJSONObject("weatherinfo");
+            //JSONObject weatherInfo = jsonObject.getJSONObject("weatherinfo");
 
 
-            String cityName = weatherInfo.getString("city");
+            String cityName = jsonObject.getString("city");
 
 
-            String weatherCode = weatherInfo.getString("cityid");
+            String weatherCode = jsonObject.getString("citycode");
 
 
-            String temp1 = weatherInfo.getString("temp1");
+            String temp1 = jsonObject.getString("temp");
 
 
-            String temp2 = weatherInfo.getString("temp2");
+            String temp2 = jsonObject.getString("tempf");
 
 
-            String weatherDesp = weatherInfo.getString("weather");
+            String weatherDesp = jsonObject.getString("weather");
 
 
-            String publishTime = weatherInfo.getString("ptime");
+            String publishTime = jsonObject.getString("uptime");
 
 
             saveWeatherInfo(context, cityName, weatherCode, temp1, temp2,

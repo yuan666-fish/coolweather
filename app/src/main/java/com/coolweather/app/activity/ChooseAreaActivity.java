@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -444,13 +444,13 @@ public class ChooseAreaActivity extends Activity {
         if (!TextUtils.isEmpty(code)) {
 
 
-            address = "http://www.weather.com.cn/data/list3/city" + code + ".xml";
+            address = "http://api.help.bj.cn/apis/weather/?id=" + code;
 
 
         } else {
 
 
-            address = "http://www.weather.com.cn/data/list3/city.xml";
+            address = "http://api.help.bj.cn/apis/weather/?id=101210101";
 
 
         }

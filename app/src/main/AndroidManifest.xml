@@ -24,10 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.coolweather.app.service.AutoUpdateService"></service>
-
-
-        <receiver android:name="com.coolweather.app.receiver.AutoUpdateReceiver"></receiver>
+        <service android:name=".service.AutoUpdateService">
+            <intent-filter>
+                <action android:name="AutoUpdateService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.coolweather.app.receiver.AutoUpdateReceiver"/>
     </application>
 
 </manifest>

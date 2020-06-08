@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import com.coolweather.app.receiver.AutoUpdateReceiver;
 import com.coolweather.app.util.HttpCallbackListener;
@@ -100,7 +100,7 @@ public class AutoUpdateService extends Service {
         String weatherCode = prefs.getString("weather_code", "");
 
 
-        String address = "http://www.weather.com.cn/data/cityinfo/" + weatherCode + ".html";
+        String address = "http://api.help.bj.cn/apis/weather/?id="+weatherCode;
 
 
         HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
